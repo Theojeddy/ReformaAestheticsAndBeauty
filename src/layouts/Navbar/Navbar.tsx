@@ -39,19 +39,19 @@ export default function Navbar() {
               <a href="/">Home</a> {/* Updated to standard anchor link */}
             </li>
             <li>
-              <a href="/pages/staff">Staff</a>
+              <a href="/pages/Staff">Staff</a>
             </li>
             <li>
-              <a href="/pages/contact-us">Contact Us</a>
+              <a href="/pages/ContactUs">Contact Us</a>
             </li>
             <li>
-              <a href="/pages/aesthetics">Reforma Aesthetics</a>
+              <a href="/pages/Aesthetics">Reforma Aesthetics</a>
             </li>
             <li>
-              <a href="/pages/beauty">Reforma Beauty</a>
+              <a href="/pages/Beauty">Reforma Beauty</a>
             </li>
             <li>
-              <a href="/pages/booking">How To Book</a>
+              <a href="/pages/Booking">How To Book</a>
             </li>
           </ul>
         )}
