@@ -1,0 +1,65 @@
+:root {
+    /*Fonts*/
+  --max-width: 100%;
+  --border-radius: 12px;
+  --font-primary: "Lora", serif;
+  --font-secondary: "ALTA", sans-serif;
+  --font-accent: "Moontime", cursive;
+  --font-body: "Arapey", serif;
+
+  /* Font colour*/
+  --primary-font-color: #000000;
+  --secondary-font-color: #ffffff;
+  --accent-font-color: #eb9486;
+
+  /* Colours*/
+    --foreground-color: #000000;
+  --background-color: #f7f6f6; 
+  --accent-color: #67482c;
+  --secondary-color: #92747e;
+}
+/* Large screens*/
+.header-center {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-top: 60px;
+}
+
+.logo {
+  width: 60vw;
+  height: auto;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 60px; /* Adjust according to the heights of navbar and header */
+}
+
+main h1 {
+  font-family: var(--font-secondary);
+  font-size: 3rem;
+  color: var(--accent-font-color);
+}
+
+
+
+/* Small screens*/
+
+@media (max-width: 768px) {
+    .logo {
+    width: 70vw; /* Adjusted for small screens */
+  }
+
+  main {
+    padding: 1rem; /* Reduced padding for smaller screens */
+  }
+
+  main h1 {
+    font-size: 2.5rem; /* Smaller font size for small screens */
+  }
+}

@@ -1,0 +1,118 @@
+:root {
+    /*Fonts*/
+  --max-width: 100%;
+  --border-radius: 12px;
+  --font-primary: "Lora", serif;
+  --font-secondary: "ALTA", sans-serif;
+  --font-accent: "Moontime", cursive;
+  --font-body: "Arapey", serif;
+
+  /* Font colour*/
+  --primary-font-color: #000000;
+  --secondary-font-color: #ffffff;
+  --accent-font-color: #eb9486;
+
+  /* Colours*/
+    --foreground-color: #000000;
+  --background-color: #f7f6f6; 
+  --accent-color: #67482c;
+  --secondary-color: #92747e;
+}
+
+/* Large Screens */
+.home-page-transition {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.home-page-transition.show {
+  opacity: 1;
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-logo {
+  width: 100px; /* Adjust the loading logo size as needed */
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.page-content.show {
+  opacity: 1;
+}
+
+.container.homepage-layout {
+  width: 80vw;
+  max-width: 1200px; /* Adjust max width as needed */
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.main-logo {
+  width: 200px; /* Adjust the main logo size as needed */
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.vision-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.vision-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.vision-image {
+  width: 50vw; /* Ensure image is responsive */
+  max-width: 600px; /* Set a max-width for the image */
+}
+
+.map-section {
+  height: 400px; /* Set the height for the map */
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.visit-us-section {
+  text-align: center;
+}
+
+/* Small Screens */
+@media (max-width: 768px) {
+  .loading-logo {
+    width: 80px; /* Adjusted for small screens */
+  }
+
+  .main-logo {
+    width: 150px; /* Adjusted for small screens */
+  }
+
+  .vision-image {
+    max-width: 90%; /* Adjusted for small screens */
+  }
+
+  .map-section {
+    height: 300px; /* Adjusted height for small screens */
+  }
+}

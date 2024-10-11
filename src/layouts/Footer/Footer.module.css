@@ -1,0 +1,20 @@
+:root {
+    /*Fonts*/
+  --max-width: 100%;
+  --border-radius: 12px;
+  --font-primary: "Lora", serif;
+  --font-secondary: "ALTA", sans-serif;
+  --font-accent: "Moontime", cursive;
+  --font-body: "Arapey", serif;
+
+  /* Font colour*/
+  --primary-font-color: #000000;
+  --secondary-font-color: #ffffff;
+  --accent-font-color: #eb9486;
+
+  /* Colours*/
+    --foreground-color: #000000;
+  --background-color: #f7f6f6; 
+  --accent-color: #67482c;
+  --secondary-color: #92747e;
+}
