@@ -1,5 +1,5 @@
 :root {
-    /*Fonts*/
+  /* Fonts */
   --max-width: 100%;
   --border-radius: 12px;
   --font-primary: "Lora", serif;
@@ -7,13 +7,13 @@
   --font-accent: "Moontime", cursive;
   --font-body: "Arapey", serif;
 
-  /* Font colour*/
+  /* Font colour */
   --primary-font-color: #000000;
   --secondary-font-color: #ffffff;
   --accent-font-color: #eb9486;
 
-  /* Colours*/
-    --foreground-color: #000000;
+  /* Colours */
+  --foreground-color: #000000;
   --background-color: #f7f6f6; 
   --accent-color: #67482c;
   --secondary-color: #92747e;
@@ -21,7 +21,7 @@
 
 /* Large Screens */
 .home-page-transition {
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 5s ease-in-out;
   opacity: 0;
 }
 
@@ -55,6 +55,11 @@
   width: 80vw;
   max-width: 1200px; /* Adjust max width as needed */
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: repeat(3, auto); /* Three rows */
+  gap: 20px; /* Space between items */
+  justify-items: center; /* Center items in the grid */
 }
 
 .logo-section {

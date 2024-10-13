@@ -1,9 +1,10 @@
 /Reforma-Aesthetics-And-Beauty
 ├── /public
-│   └── favicon.ico        # App favicon
+│   ├── BrowserLogo        # Browser logo
+│   └── _redirects         # For netlify deployment, handles the routing for single page applications ***DO NOT REMOVE WHILE DEPLOYED ON NETLIFY***
 ├── /src
 │   ├── /assets            # Images, fonts, icons etc.
-│   ├── /components        # Reusable UI components
+│   ├── /components        # Reusable UI components (Card List)
 │   ├── /pages             # Page components (Home, About Us, Aesthetics, etc.)
 │   ├── /layouts           # Layout components (Navbar, Footer, etc.)
 │   ├── App.tsx            # Main application file

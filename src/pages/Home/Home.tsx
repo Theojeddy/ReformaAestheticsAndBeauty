@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css"; 
+import "maplibre-gl/dist/maplibre-gl.css";
 import ReformaLogo from "../../assets/ReformaLogo.svg";
 import JenAndBecky from "../../assets/Jen&becky.svg";
 
@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Adjust the time as needed
+    }, 3000); // Set loading time to 3 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -64,14 +64,13 @@ export default function Home() {
         <div className={styles.loadingScreen}>
           <img
             className={styles.loadingLogo}
-            src="/ReformaLogo.svg"
+            src={ReformaLogo}
             alt="Reforma Logo"
           />
         </div>
       )}
 
       <div className={`${styles.pageContent} ${!isLoading ? styles.show : ""}`}>
-        
         <main className={`container ${styles.homepageLayout}`}>
           {/* First Row */}
           <div className={styles.logoSection}>

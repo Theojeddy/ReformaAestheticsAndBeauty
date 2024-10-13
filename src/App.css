@@ -1,42 +1,89 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+:root {
+    /*Fonts*/
+  --max-width: 100%;
+  --border-radius: 12px;
+  --font-primary: "Lora", serif;
+  --font-secondary: "ALTA", sans-serif;
+  --font-accent: "Moontime", cursive;
+  --font-body: "Arapey", serif;
+
+  /* Font colour*/
+  --primary-font-color: #000000;
+  --secondary-font-color: #ffffff;
+  --accent-font-color: #eb9486;
+
+  /* Colours*/
+    --foreground-color: #000000;
+  --background-color: #f7f6f6; 
+  --accent-color: #67482c;
+  --secondary-color: #92747e;
+}
+/* Base styling */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  line-height: 1.6;
+}
+
+/* Main content styling */
+main {
   padding: 2rem;
   text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 60px; /* Adjust according to the heights of navbar and header */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+main h1 {
+  font-family: var(--font-secondary);
+  font-size: 3rem;
+  color: var(--accent-font-color);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main p {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--foreground-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Adjustment for light or dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-color: #ffffff;
+    --background-color: #000000;
   }
 }
 
-.card {
-  padding: 2em;
+/* Element styling */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  color: var(--foreground-color);
 }
 
-.read-the-docs {
-  color: #888;
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-family: var(--font-secondary);
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+p {
+  font-family: var(--font-body);
+  color: var(--foreground-color);
 }

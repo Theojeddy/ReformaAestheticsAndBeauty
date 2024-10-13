@@ -7,20 +7,23 @@ import Booking from "./pages/Booking/Booking";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Staff from "./pages/Staff/Staff";
 import Navbar from "./layouts/Navbar/Navbar";
+import "./App.css";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/pages/AboutUs" element={<AboutUs />} />
-        <Route path="/pages/Aesthetics" element={<Aesthetics />} />
-        <Route path="/pages/Beauty" element={<Beauty />} />
-        <Route path="/pages/Booking" element={<Booking />} />
-        <Route path="/pages/ContactUs" element={<ContactUs />} />
-        <Route path="/pages/Staff" element={<Staff />} />
-      </Routes>
+      <div className="contentContainer">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pages/AboutUs" element={<AboutUs />} />
+          <Route path="/pages/Aesthetics" element={<Aesthetics />} />
+          <Route path="/pages/Beauty" element={<Beauty />} />
+          <Route path="/pages/Booking" element={<Booking />} />
+          <Route path="/pages/ContactUs" element={<ContactUs />} />
+          <Route path="/pages/Staff" element={<Staff />} />
+        </Routes>
+      </div>
     </Router>
   );
 };
