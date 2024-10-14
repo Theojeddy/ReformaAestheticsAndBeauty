@@ -1,5 +1,5 @@
 :root {
-  --max-width: 100%;
+  --max-width: 100vw;
   --border-radius: 12px;
   --font-primary: "Lora", serif;
   --font-secondary: "ALTA", sans-serif;

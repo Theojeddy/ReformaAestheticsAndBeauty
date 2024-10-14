@@ -1,6 +1,6 @@
 :root {
   /* Fonts */
-  --max-width: 100%;
+  --max-width: 100vw;
   --border-radius: 12px;
   --font-primary: "Lora", serif;
   --font-secondary: "ALTA", sans-serif;
@@ -16,108 +16,131 @@
   --foreground-color: #000000;
   --background-color: #f7f6f6; 
   --accent-color: #67482c;
+   --secondary-accent-color: #b58563;
   --secondary-color: #92747e;
 }
 
 /* Large Screens */
-.home-page-transition {
+.homePageTransition {
   transition: opacity 5s ease-in-out;
   opacity: 0;
 }
 
-.home-page-transition.show {
+.homePageTransition.show {
   opacity: 1;
 }
 
-.loading-screen {
+.loadingScreen {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.loading-logo {
+.loadingLogo {
   width: 100px; /* Adjust the loading logo size as needed */
 }
 
-.page-content {
+.pageContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: opacity 0.5s ease-in-out;
 }
 
-.page-content.show {
+.pageContent.show {
   opacity: 1;
 }
 
-.container.homepage-layout {
+.homepageLayout {
   width: 80vw;
-  max-width: 1200px; /* Adjust max width as needed */
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  grid-template-rows: repeat(3, auto); /* Three rows */
-  gap: 20px; /* Space between items */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr); 
+  gap: 20px; 
   justify-items: center; /* Center items in the grid */
+  align-items: center; /* Vertically center items */
 }
 
-.logo-section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+.mainLogo {
+  width: 40vw;
+  height: auto;
 }
 
-.main-logo {
-  width: 200px; /* Adjust the main logo size as needed */
-}
-
-.title-section {
+.titleSection h2 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  font-family: var(--font-secondary);
 }
 
-.vision-section {
+.titleAccent h2{
+  font-family: var(--font-accent);
+}
+
+.subtitle {
+  font-size: 1rem;
   text-align: center;
-  margin: 40px 0;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  color: var(--background-color);
+  font-family: var(--font-primary);
 }
 
-.vision-image-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+.visionTitle {
+  border-bottom: 15px solid var(--secondary-accent-color);
 }
 
-.vision-image {
-  width: 50vw; /* Ensure image is responsive */
-  max-width: 600px; /* Set a max-width for the image */
+.vision-section h1,
+.vision-section p {
+  text-align: center;
 }
 
-.map-section {
-  height: 400px; /* Set the height for the map */
-  width: 100%;
-  margin-bottom: 40px;
+.visionImageContainer img{ 
+  height: auto;
+  max-width: 35vw;
 }
 
-.visit-us-section {
+.mapSection {
+  height: 40vh; 
+  max-width: 40vw;
+}
+
+.visitUsSection h2,
+.visitUsSection p {
   text-align: center;
 }
 
 /* Small Screens */
 @media (max-width: 768px) {
-  .loading-logo {
-    width: 80px; /* Adjusted for small screens */
+  .pageContent {
+  margin-top: 15vh;
+}
+  .homepageLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto);
   }
 
-  .main-logo {
-    width: 150px; /* Adjusted for small screens */
+  .loadingLogo {
+    width: 80px;
   }
 
-  .vision-image {
-    max-width: 90%; /* Adjusted for small screens */
+  .mainLogo {
+    width: 150px;
   }
 
-  .map-section {
-    height: 300px; /* Adjusted height for small screens */
+  .visionImage {
+    max-width: 90%;
+  }
+
+  .mapSection {
+    height: 300px;
+  }
+
+  .visionSection {
+    margin: 20px 0;
+  }
+
+  .visitUsSection {
+    margin-bottom: 20px;
   }
 }

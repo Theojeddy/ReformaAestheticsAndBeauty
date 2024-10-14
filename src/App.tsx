@@ -7,12 +7,15 @@ import Booking from "./pages/Booking/Booking";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Staff from "./pages/Staff/Staff";
 import Navbar from "./layouts/Navbar/Navbar";
+import Footer from "./layouts/Footer/Footer";
 import "./App.css";
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
+      <header>
+        <Navbar />
+        </header>
       <div className="contentContainer">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,6 +27,7 @@ const App = () => {
           <Route path="/pages/Staff" element={<Staff />} />
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 };

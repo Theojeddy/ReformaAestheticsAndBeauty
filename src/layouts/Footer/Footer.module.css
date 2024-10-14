@@ -1,6 +1,6 @@
 :root {
     /*Fonts*/
-  --max-width: 100%;
+  --max-width: 100vw;
   --border-radius: 12px;
   --font-primary: "Lora", serif;
   --font-secondary: "ALTA", sans-serif;
@@ -16,5 +16,56 @@
     --foreground-color: #000000;
   --background-color: #f7f6f6; 
   --accent-color: #67482c;
+  --secondary-accent-color: #b58563;
   --secondary-color: #92747e;
 }
+.footer {
+  background-color: var(--secondary-color); /* Background similar to the image */
+  padding: 20px;
+  text-align: center;
+  border-top: 5px solid var( --secondary-accent-color); /* Add golden border at the top */
+  color: var(--secondary-font-color);
+  font-family: var(--font-body); /* Assuming you are using a custom font */
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.socialMedia, .contactInfo, .address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+i {
+  font-size: 1.5rem;
+  color: #fff; /* Icon color */
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footer .socialMedia p,
+.footer .contactInfo p,
+.footer .address p {
+  margin-left: 10px;
+}
+
+/* Adjusting for small screens */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+

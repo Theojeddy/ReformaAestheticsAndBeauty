@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import maplibregl from "maplibre-gl";
@@ -8,7 +7,7 @@ import JenAndBecky from "../../assets/Jen&becky.svg";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [coordinates, setCoordinates] = useState<[number, number] | null>(null); // Store coordinates
+  const [coordinates, setCoordinates] = useState<[number, number] | null>(null); 
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,19 +39,20 @@ export default function Home() {
     fetchCoordinates();
   }, []);
 
-  useEffect(() => {
-    if (coordinates && !isLoading) {
-      const map = new maplibregl.Map({
-        container: "my-map", // The id of the HTML element to inject the map into
-        style: `https://maps.geoapify.com/v1/styles/klokantech-basic/style.json?apiKey=ca54ba162c664b2988fad6b2db9061a0`,
-        center: coordinates, // Use the fetched coordinates to center the map
-        zoom: 14, // Adjust zoom level as needed
-      });
+useEffect(() => {
+  if (coordinates && !isLoading) {
+    console.log("Coordinates:", coordinates); // Debugging step
+    const map = new maplibregl.Map({
+      container: "my-map",
+      style: `https://maps.geoapify.com/v1/styles/klokantech-basic/style.json?apiKey=ca54ba162c664b2988fad6b2db9061a0`,
+      center: coordinates,
+      zoom: 14,
+    });
 
-      // Optional: Add a marker at the center
-      new maplibregl.Marker().setLngLat(coordinates).addTo(map);
-    }
-  }, [coordinates, isLoading]);
+    new maplibregl.Marker().setLngLat(coordinates).addTo(map);
+    console.log("Map initialized:", map); // Check if map is created
+  }
+}, [coordinates, isLoading]);
 
   return (
     <div
@@ -71,7 +71,7 @@ export default function Home() {
       )}
 
       <div className={`${styles.pageContent} ${!isLoading ? styles.show : ""}`}>
-        <main className={`container ${styles.homepageLayout}`}>
+        <main className={styles.homepageLayout}>
           {/* First Row */}
           <div className={styles.logoSection}>
             <img
@@ -82,12 +82,14 @@ export default function Home() {
           </div>
 
           <div className={styles.titleSection}>
-            <h2 className={styles.title}>Welcome to Reforma Beauty</h2>
+            <h2 className={styles.title}>Welcome to</h2>
+            <h2 className={styles.titleAccent}>Reforma Aesthetics and Beauty</h2>
+            <h3 className={styles.subtitle}>OFFERING EVERYTHING YOU NEED IN ONE PLACE</h3>
           </div>
 
           {/* Second Row */}
           <div className={styles.visionSection}>
-            <h1>Our Vision</h1>
+            <h1 className={styles.visionTitle}>Our Vision</h1>
             <p>
               Reforma Aesthetics and beauty is a friendly family-run aesthetics
               clinic and beauty studio that is primarily about allowing
@@ -102,7 +104,7 @@ export default function Home() {
           <div className={styles.visionImageContainer}>
             <img
               className={styles.visionImage}
-              src={JenAndBecky} // Use the imported variable here
+              src={JenAndBecky}
               alt="Jen and Becky"
             />
           </div>
