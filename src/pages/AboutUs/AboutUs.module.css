@@ -21,7 +21,9 @@
 }
 
 /* Large screens*/
-
+.pageContent {
+  margin-top:20vh;
+}
 .header-center {
   display: grid;
   justify-content: center;
@@ -59,6 +61,9 @@ main p {
 /* Small screens*/
 
 @media (max-width: 768px) {
+    .pageContent {
+  margin-top: 15vh;
+}
   .logo {
     width: 70vw; /* Adjusted for small screens */
   }
