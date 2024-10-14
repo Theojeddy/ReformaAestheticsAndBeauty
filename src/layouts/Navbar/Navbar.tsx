@@ -18,8 +18,6 @@ export default function Navbar() {
             className={styles["navbar-logo"]}
             src={ReformaNavbarLogo} 
             alt="Reforma Logo"
-            width={100}
-            height={50}
           />
         </div>
         <div className={styles["nav-title"]}>

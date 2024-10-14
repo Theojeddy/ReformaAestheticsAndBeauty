@@ -26,6 +26,10 @@
   border-top: 5px solid var( --secondary-accent-color); /* Add golden border at the top */
   color: var(--secondary-font-color);
   font-family: var(--font-body); /* Assuming you are using a custom font */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
 }
 
 .footerContent {
