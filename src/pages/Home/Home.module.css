@@ -7,76 +7,58 @@
   --font-accent: "Moontime", cursive;
   --font-body: "Arapey", serif;
 
-  /* Font colour */
+  /* Font color */
   --primary-font-color: #000000;
   --secondary-font-color: #ffffff;
   --accent-font-color: #eb9486;
 
-  /* Colours */
+  /* Colors */
   --foreground-color: #000000;
-  --background-color: #f7f6f6; 
+  --background-color: #f7f6f6;
   --accent-color: #67482c;
-   --secondary-accent-color: #b58563;
+  --secondary-accent-color: #b58563;
   --secondary-color: #92747e;
 }
 
-/* Large Screens */
-.homePageTransition {
-  transition: opacity 5s ease-in-out;
-  opacity: 0;
-}
-
-.homePageTransition.show {
-  opacity: 1;
-}
-
-.loadingScreen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.loadingLogo {
-  width: 100px; /* Adjust the loading logo size as needed */
-}
-
 .pageContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.pageContent.show {
-  opacity: 1;
+  margin-top:20vh;
 }
 
 .homepageLayout {
-  width: 80vw;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr); 
-  gap: 20px; 
-  justify-items: center; /* Center items in the grid */
-  align-items: center; /* Vertically center items */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  padding: 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* First Row: Logo and Title */
+.logoSection {
+  grid-column: 1 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainLogo {
-  width: 40vw;
+  max-width: 100%;
   height: auto;
 }
 
-.titleSection h2 {
+.titleSection {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-primary);
   text-align: center;
-  font-size: 2rem;
-  font-family: var(--font-secondary);
 }
-
-.titleAccent h2{
-  font-family: var(--font-accent);
-}
-
 .subtitle {
   font-size: 1rem;
   text-align: center;
@@ -86,61 +68,81 @@
   font-family: var(--font-primary);
 }
 
+.titleAccent {
+  font-family: var(--font-accent);
+  color: var(--accent-color);
+  text-align: center;
+}
+
+/* Second Row: Vision Section */
+.visionSection {
+  grid-column: 1 / 2;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  color: var(--secondary-font-color);
+}
+
+.visionImageContainer {
+  grid-column: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visionImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
 .visionTitle {
   border-bottom: 15px solid var(--secondary-accent-color);
 }
 
-.vision-section h1,
-.vision-section p {
-  text-align: center;
-}
-
-.visionImageContainer img{ 
-  height: auto;
-  max-width: 35vw;
-}
-
+/* Third Row: Map and Address */
 .mapSection {
-  height: 40vh; 
-  max-width: 40vw;
+  grid-column: 1 / 2;
+  height: 400px; /* Set a fixed height for the map */
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
 }
 
-.visitUsSection h2,
+.visitUsSection {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;;
+}
+
+.visitUsSection h2 {
+  margin-bottom: 10px;
+  border-bottom: 15px solid var(--secondary-accent-color);
+  font-family: var(--font-secondary);
+}
+
 .visitUsSection p {
-  text-align: center;
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
 }
 
-/* Small Screens */
+/* Responsive Design */
 @media (max-width: 768px) {
+
   .pageContent {
   margin-top: 15vh;
 }
   .homepageLayout {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, auto);
+    grid-template-rows: auto auto auto auto auto auto;
+    padding: 10px;
   }
 
-  .loadingLogo {
-    width: 80px;
-  }
-
-  .mainLogo {
-    width: 150px;
+  .titleSection, .logoSection, .visionSection, .visionImageContainer, .mapSection, .visitUsSection {
+    grid-column: 1 / 2;
   }
 
   .visionImage {
-    max-width: 90%;
-  }
-
-  .mapSection {
-    height: 300px;
-  }
-
-  .visionSection {
-    margin: 20px 0;
-  }
-
-  .visitUsSection {
-    margin-bottom: 20px;
+    max-width: 80%;
   }
 }
