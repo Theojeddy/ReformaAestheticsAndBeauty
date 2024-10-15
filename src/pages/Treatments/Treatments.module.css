@@ -1,0 +1,109 @@
+:root {
+  /* Fonts */
+  --max-width: 100vw;
+  --border-radius: 12px;
+  --font-primary: "Lora", serif;
+  --font-secondary: "ALTA", sans-serif;
+  --font-accent: "Moontime", cursive;
+  --font-body: "Arapey", serif;
+
+  /* Font color */
+  --primary-font-color: #000000;
+  --secondary-font-color: #ffffff;
+  --accent-font-color: #eb9486;
+
+  /* Colors */
+  --foreground-color: #000000;
+  --background-color: #f7f6f6;
+  --accent-color: #67482c;
+  --secondary-accent-color: #b58563;
+  --secondary-color: #92747e;
+}
+
+/* Treatments.module.css */
+
+.pageContent {
+  margin-top: 20vh;
+}
+
+.TreatmentPageLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: auto auto auto; /* Three rows */
+  gap: 20px;
+  padding: 20px;
+}
+
+.logoSection {
+  grid-column: 1 / 2; /* Logo in the first column */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainLogo {
+  max-width: 100%;
+  height: auto;
+}
+
+.titleSection {
+  grid-column: 2 / 3; /* Title in the second column */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-primary);
+  text-align: center;
+}
+
+.serviceSection {
+  grid-column: 1 / 3; /* Full width for service section */
+  display: flex; /* Flexbox for horizontal layout */
+  justify-content: space-between; /* Space between description and image */
+  align-items: center; /* Center items vertically */
+  margin: 10px 0; /* Add some margin for separation */
+}
+
+.serviceCard {
+  padding: 15px;
+  border: 1px solid var(--secondary-accent-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure it takes full width */
+}
+
+.serviceImageSection {
+  display: flex;
+  justify-content: center; /* Center the image */
+}
+
+.treatmentImage {
+  max-width: 100%; /* Ensure the image is responsive */
+  height: auto;
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .ServicesPageLayout {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .logoSection,
+  .titleSection,
+  .serviceSection {
+    grid-column: 1 / 2; /* Center elements in single column */
+  }
+
+  .serviceCard {
+    width: 80%; /* Adjust card size on small screens */
+    margin: 0 auto; /* Center cards */
+  }
+
+  .serviceImageSection {
+    margin-top: 15px; /* Add some margin for spacing */
+  }
+}
+

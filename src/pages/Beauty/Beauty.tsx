@@ -1,8 +1,15 @@
 import styles from "./Beauty.module.css";
 import CardList from "../../components/CardList";
 import ReformaLogo from "../../assets/ReformaLogo.svg";
+import { useNavigate } from "react-router-dom";
 
-export default function Beauty() {
+interface BeautyProps {
+  setTreatment: (treatmentName: string) => void; // Define the type for setTreatment
+}
+
+export default function Beauty({ setTreatment }: BeautyProps) {
+  const navigate = useNavigate(); // Initialize the navigate function
+
   const cardData = [
     {
       name: "Eyelashes",
@@ -31,14 +38,32 @@ export default function Beauty() {
     },
   ];
 
+  const handleSelectTreatment = (treatmentName: string) => {
+    console.log("Selected Treatment:", treatmentName); // Debugging line
+    setTreatment(treatmentName);
+    navigate("/pages/Treatment");
+  };
+
+
   return (
-    <div>
-      <header className={styles.headerCenter}>
-        <img className={styles.mainLogo} src={ReformaLogo} alt="Reforma Logo" />
-      </header>
-      <main>
-        <h1>Beauty</h1>
-        <CardList data={cardData} />
+    <div className={styles.pageContent}>
+      <main className={styles.BeautyPageLayout}>
+        {/* First Row */}
+        <div className={styles.logoSection}>
+          <img
+            className={styles.mainLogo}
+            src={ReformaLogo}
+            alt="Reforma Logo"
+          />
+        </div>
+        <div className={styles.titleSection}>
+          <h2 className={styles.title}>Reforma Beauty</h2>
+        </div>
+
+        {/* Card List */}
+        <div className={styles.cardContainer}>
+          <CardList data={cardData} onSelectTreatment={handleSelectTreatment} />
+        </div>
       </main>
     </div>
   );
