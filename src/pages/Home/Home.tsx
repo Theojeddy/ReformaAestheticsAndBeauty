@@ -7,6 +7,23 @@ import JenAndBecky from "../../assets/Jen&becky.svg";
 
 export default function Home() {
   const [coordinates, setCoordinates] = useState<[number, number] | null>(null);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useEffect(() => {
+      // Check the screen size and update the state accordingly
+      const handleResize = () => {
+        setIsSmallScreen(window.innerWidth <= 768); // Small screen if width is <= 768px
+      };
+
+      // Run the check on initial render
+      handleResize();
+
+      // Listen for window resize events
+      window.addEventListener("resize", handleResize);
+
+      // Cleanup the event listener on component unmount
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
@@ -85,21 +102,46 @@ export default function Home() {
         </div>
 
         {/* Third Row */}
-        <div className={styles.mapSection} id="my-map"></div>
-        <div className={styles.visitUsSection}>
-          <h2>How To Find us</h2>
-          <p>
-            Reforma Beauty
-            <br />
-            716 Portway, Bristol,
-            <br/>
-            Bristol,
-            <br/>
-            United Kingdom,
-            <br/>
-             BS11 9NX
-          </p>
-        </div>
+        {/* Conditional rendering based on screen size */}
+        {isSmallScreen ? (
+          <>
+            {/* 'How To Find Us' section before the map on small screens */}
+            <div className={styles.visitUsSection}>
+              <h2>How To Find Us</h2>
+              <p>
+                Reforma Beauty
+                <br />
+                716 Portway, Bristol,
+                <br />
+                Bristol,
+                <br />
+                United Kingdom,
+                <br />
+                BS11 9NX
+              </p>
+            </div>
+            <div className={styles.mapSection} id="my-map"></div>
+          </>
+        ) : (
+          <>
+            {/* Map section before 'How To Find Us' on large screens */}
+            <div className={styles.mapSection} id="my-map"></div>
+            <div className={styles.visitUsSection}>
+              <h2>How To Find Us</h2>
+              <p>
+                Reforma Beauty
+                <br />
+                716 Portway, Bristol,
+                <br />
+                Bristol,
+                <br />
+                United Kingdom,
+                <br />
+                BS11 9NX
+              </p>
+            </div>
+          </>
+        )}
       </main>
     </div>
   );

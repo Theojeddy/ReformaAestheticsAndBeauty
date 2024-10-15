@@ -22,7 +22,6 @@
   background-color: var(--secondary-color); /* Background similar to the image */
   padding: 20px;
   text-align: center;
-  border-top: 5px solid var( --secondary-accent-color); /* Add golden border at the top */
   color: var(--secondary-font-color);
   font-family: var(--font-body); /* Assuming you are using a custom font */
   width: 100vw;
