@@ -11,31 +11,29 @@ export default function Navbar() {
   return (
     // Navbar positing of Logo image to the left, title offset to the right and burger menu to the left
     <nav className={styles.navbar}>
-      <div className={styles["navbar-container"]}>
+      <div className={styles.navbarContainer}>
         {/* Logo on the left */}
-        <div className={styles["logo-container"]}>
+        <div className={styles.logoContainer}>
           <img
-            className={styles["navbar-logo"]}
-            src={ReformaNavbarLogo} 
+            className={styles.navbarLogo}
+            src={ReformaNavbarLogo}
             alt="Reforma Logo"
           />
         </div>
-        <div className={styles["nav-title"]}>
-          <h1>Reforma Aesthetics & Beauty</h1>
+        <div>
+          <h1 className={styles.navTitle}>Reforma Aesthetics & Beauty</h1>
         </div>
 
         {/* Burger menu icon when closed and cross for when open */}
-        <div className={styles["burger-menu"]} onClick={toggleMenu}>
+        <div className={styles.burgerMenu} onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
         {/* Dropdown menu options and links */}
         {menuOpen && (
-          <ul
-            className={`${styles["nav-items"]} ${menuOpen ? styles.open : ""}`}
-          >
+          <ul className={`${styles.navItems} ${menuOpen ? styles.open : ""}`}>
             <li>
-              <a href="/">Home</a> 
+              <a href="/">Home</a>
             </li>
             <li>
               <a href="/pages/AboutUs">About Us</a>
