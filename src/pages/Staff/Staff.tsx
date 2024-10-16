@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./Staff.module.css";
 import ReformaLogo from "../../assets/ReformaLogo.svg";
-import JenMTT from "../../assets/JenMTT.svg";
-import BeckyMTT from "../../assets/BeckyMTT.svg";
+import JenMTT from "../../assets/Staff/JenMTT.svg";
+import BeckyMTT from "../../assets/Staff/BeckyMTT.svg";
 
 export default function Staff() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);

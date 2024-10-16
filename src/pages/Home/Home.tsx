@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import ReformaLogo from "../../assets/ReformaLogo.svg";
-import JenAndBecky from "../../assets/Jen&becky.svg";
+import JenAndBecky from "../../assets/Home/Jen&becky.svg";
 
 export default function Home() {
   const [coordinates, setCoordinates] = useState<[number, number] | null>(null);

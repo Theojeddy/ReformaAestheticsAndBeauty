@@ -6,8 +6,9 @@ import { useEffect, useState } from "react";
 interface Treatment {
   name: string;
   description: string;
-  // Add any other relevant fields you need
+  images: string[]; // Array of image paths or URLs
 }
+
 export default function Treatments({ treatment }: { treatment: string }) {
   const [treatmentDetails, setTreatmentDetails] = useState<Treatment | null>(
     null
@@ -18,7 +19,13 @@ export default function Treatments({ treatment }: { treatment: string }) {
     const details =
       treatmentsData.aesthetics.find((item) => item.name === treatment) ||
       treatmentsData.beauty.find((item) => item.name === treatment);
-    setTreatmentDetails(details || null);;
+
+    // Ensure details have images, or set a default empty array
+    if (details) {
+      setTreatmentDetails({ ...details, images: details.images || [] });
+    } else {
+      setTreatmentDetails(null);
+    }
   }, [treatment]);
 
   if (!treatmentDetails) {
@@ -29,12 +36,13 @@ export default function Treatments({ treatment }: { treatment: string }) {
     );
   }
 
-  console.log("Selected Treatment Details:", treatmentDetails);
+  // Extract the first image and remaining images
+  const [firstImage, ...remainingImages] = treatmentDetails.images;
 
   return (
     <div className={styles.pageContent}>
       <main className={styles.TreatmentPageLayout}>
-        {/* First Row */}
+        {/* First Row: Logo and Treatment Name */}
         <div className={styles.logoSection}>
           <img
             className={styles.mainLogo}
@@ -43,22 +51,38 @@ export default function Treatments({ treatment }: { treatment: string }) {
           />
         </div>
         <div className={styles.titleSection}>
-          <h2 className={styles.title}>Our Treatments</h2>
+          <h1 className={styles.title}>{treatmentDetails.name}</h1>
         </div>
 
-        {/* Second Row */}
-        <div className={styles.serviceSection}>
-          <div className={styles.serviceCard}>
-            <h3>{treatmentDetails.name}</h3>
-            <p>{treatmentDetails.description}</p>
-          </div>
-          <div className={styles.serviceImageSection}>
+        {/* Second Row: First Image */}
+        <div className={styles.serviceImageSection}>
+          {firstImage && (
             <img
-              src={`/images/${treatmentDetails.name}.jpg`} // Ensure images are named correctly
-              alt={treatmentDetails.name}
+              src={firstImage}
+              alt={`${treatmentDetails.name} Image 1`}
               className={styles.treatmentImage}
             />
-          </div>
+          )}
+        </div>
+
+        {/* Third Row: Description */}
+        <div
+          className={styles.descriptionSection}
+          dangerouslySetInnerHTML={{ __html: treatmentDetails.description }}
+        />
+
+        {/* Fourth Row: Remaining Images in Columns */}
+        <div className={styles.remainingImages}>
+          {remainingImages.length > 0 &&
+            remainingImages.map((image, index) => (
+              <div key={index} className={styles.imageColumn}>
+                <img
+                  src={image}
+                  alt={`${treatmentDetails.name} Image ${index + 2}`}
+                  className={styles.treatmentImage}
+                />
+              </div>
+            ))}
         </div>
       </main>
     </div>

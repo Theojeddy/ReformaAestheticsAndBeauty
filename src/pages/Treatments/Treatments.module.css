@@ -29,7 +29,7 @@
 .TreatmentPageLayout {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns */
-  grid-template-rows: auto auto auto; /* Three rows */
+  grid-template-rows: auto auto auto auto; /* Four rows */
   gap: 20px;
   padding: 20px;
 }
@@ -49,61 +49,81 @@
 .titleSection {
   grid-column: 2 / 3; /* Title in the second column */
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Align to the left */
   align-items: center;
 }
 
 .title {
   font-family: var(--font-primary);
-  text-align: center;
-}
-
-.serviceSection {
-  grid-column: 1 / 3; /* Full width for service section */
-  display: flex; /* Flexbox for horizontal layout */
-  justify-content: space-between; /* Space between description and image */
-  align-items: center; /* Center items vertically */
-  margin: 10px 0; /* Add some margin for separation */
-}
-
-.serviceCard {
-  padding: 15px;
-  border: 1px solid var(--secondary-accent-color);
-  border-radius: var(--border-radius);
-  background-color: var(--background-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Ensure it takes full width */
+  text-align: center; /* Align title text to the left */
 }
 
 .serviceImageSection {
+  grid-column: 1 / 3; /* Full width for first image */
   display: flex;
-  justify-content: center; /* Center the image */
+  justify-content: center; /* Center the first image */
+}
+
+.descriptionSection {
+  grid-column: 1 / 3; /* Full width for description */
+  width: 80vw;
+  text-align: center; /* Center text horizontally */
+  margin: 20px; /* Optional: Adds some space around the description */
+  padding: 0 10%; /* Optional: Adds horizontal padding */
+  line-height: 1.5; 
+}
+.descriptionSection ul {
+  list-style-position: inside; /* Optional: Positions bullet points inside the list */
+  padding-left: 0; /* Optional: Removes left padding for the list */
+}
+
+.descriptionSection strong {
+  font-weight: bold; /* Optional: Ensures strong text is bold */
+}
+
+.remainingImages {
+  grid-column: 1 / 3; /* Full width for remaining images */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for images */
+  gap: 10px; /* Space between images */
+}
+
+.imageColumn {
+  display: flex;
+  justify-content: center; /* Center images in each column */
 }
 
 .treatmentImage {
-  max-width: 100%; /* Ensure the image is responsive */
+  max-width: 40vw; /* Ensure the image is responsive */
   height: auto;
 }
 
 /* Small screens */
 @media (max-width: 768px) {
-  .ServicesPageLayout {
+    .pageContent {
+  margin-top: 15vh;
+}
+  .TreatmentPageLayout {
     grid-template-columns: 1fr; /* Single column on small screens */
   }
 
   .logoSection,
   .titleSection,
-  .serviceSection {
+  .serviceImageSection,
+  .descriptionSection,
+  .remainingImages {
     grid-column: 1 / 2; /* Center elements in single column */
   }
 
-  .serviceCard {
-    width: 80%; /* Adjust card size on small screens */
-    margin: 0 auto; /* Center cards */
+  .serviceImageSection,
+  .remainingImages {
+    flex-direction: column; /* Stack images vertically */
+    justify-content: center;
+    align-items: center;
   }
 
-  .serviceImageSection {
-    margin-top: 15px; /* Add some margin for spacing */
+  .treatmentImage {
+    width: 100%;
+     /* Adjust image size on small screens */
   }
 }
-
