@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Aesthetics.module.css";
-import CardList from "../../components/CardList";
 import ReformaLogo from "../../assets/ReformaLogo.svg";
 
 // Define an interface for the props
@@ -60,10 +59,9 @@ export default function Aesthetics({ setTreatment }: AestheticsProps) {
     navigate("/pages/Treatment");
   };
 
-
   return (
     <div className={styles.pageContent}>
-      <main className={styles.BeautyPageLayout}>
+      <main className={styles.AestheticsPageLayout}>
         {/* First Row */}
         <div className={styles.logoSection}>
           <img
@@ -76,9 +74,18 @@ export default function Aesthetics({ setTreatment }: AestheticsProps) {
           <h2 className={styles.title}>Reforma Aesthetics</h2>
         </div>
 
-        {/* Card List */}
+        {/* Manually creating cards */}
         <div className={styles.cardContainer}>
-          <CardList data={cardData} onSelectTreatment={handleSelectTreatment} />
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className={styles.serviceCard}
+              onClick={() => handleSelectTreatment(card.name)}
+            >
+              <h3>{card.name}</h3>
+              <p>{card.description}</p>
+            </div>
+          ))}
         </div>
       </main>
     </div>

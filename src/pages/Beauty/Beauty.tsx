@@ -1,5 +1,4 @@
 import styles from "./Beauty.module.css";
-import CardList from "../../components/CardList";
 import ReformaLogo from "../../assets/ReformaLogo.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -44,7 +43,6 @@ export default function Beauty({ setTreatment }: BeautyProps) {
     navigate("/pages/Treatment");
   };
 
-
   return (
     <div className={styles.pageContent}>
       <main className={styles.BeautyPageLayout}>
@@ -60,9 +58,18 @@ export default function Beauty({ setTreatment }: BeautyProps) {
           <h2 className={styles.title}>Reforma Beauty</h2>
         </div>
 
-        {/* Card List */}
+        {/* Manually creating cards */}
         <div className={styles.cardContainer}>
-          <CardList data={cardData} onSelectTreatment={handleSelectTreatment} />
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className={styles.serviceCard}
+              onClick={() => handleSelectTreatment(card.name)}
+            >
+              <h3>{card.name}</h3>
+              <p>{card.description}</p>
+            </div>
+          ))}
         </div>
       </main>
     </div>

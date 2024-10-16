@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import styles from "./CardList.module.css";
 
 interface CardData {
   name: string;
@@ -7,17 +8,17 @@ interface CardData {
 
 interface CardListProps {
   data: CardData[];
-  onSelectTreatment: (treatmentName: string) => void; // Add this line
+  onSelectTreatment: (treatmentName: string) => void;
 }
 
 export default function CardList({ data, onSelectTreatment }: CardListProps) {
   return (
-    <div className="d-flex flex-wrap justify-content-center card-list">
+    <div className={styles.cardContainer}>
       {data.map((item, index) => (
         <Card
           key={index}
-          className="custom-card m-2"
-          onClick={() => onSelectTreatment(item.name)} // Add this line
+          className={styles.serviceCard} // Ensure this matches your CSS
+          onClick={() => onSelectTreatment(item.name)}
         >
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>

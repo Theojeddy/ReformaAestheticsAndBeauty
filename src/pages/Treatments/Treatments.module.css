@@ -32,6 +32,7 @@
   grid-template-rows: auto auto auto auto; /* Four rows */
   gap: 20px;
   padding: 20px;
+  background-color: var(--background-color);
 }
 
 .logoSection {

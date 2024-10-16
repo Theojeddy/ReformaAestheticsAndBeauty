@@ -15,12 +15,36 @@
   --secondary-font-color: #ffffff;
   --accent-font-color: #eb9486;
 }
+/*Large screens*/ 
+/* Container for the cards */
+.card-list {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(2, 1fr); /* Two columns for large screens */
+  gap: 20px; /* Space between the cards */
+}
 
-/* Large screens*/
+/* Style for individual cards */
+.custom-card {
+  padding: 15px;
+  border: 1px solid var(--secondary-accent-color); /* Adjust border color */
+  border-radius: var(--border-radius); /* Rounded corners */
+  background-color: var(--background-color); /* Background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
 
+.custom-card:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
 
-/* Small screens*/
-
+/* Small screens */
 @media (max-width: 768px) {
+  .card-list {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
 
+  .custom-card {
+    width: 100%; /* Full width on small screens */
+    margin: 0 auto; /* Center cards */
+  }
 }

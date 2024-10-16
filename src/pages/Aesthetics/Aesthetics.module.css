@@ -24,11 +24,13 @@
   margin-top: 20vh; /* Adjust top margin as needed */
 }
 
-.BeautyPageLayout {
+.AestheticsPageLayout {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+  grid-template-rows: auto auto; /* Adjusted for rows */
   gap: 20px; /* Space between items */
   padding: 20px; /* Padding around the layout */
+  background-color: var(--background-color);
 }
 
 .logoSection {
@@ -57,8 +59,9 @@
 
 .cardContainer {
   grid-column: 1 / 3; /* Full width for cards */
-  display: grid; /* Use grid for card layout */
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  grid-auto-rows: auto; /* Automatically adjust row height */
   gap: 20px; /* Space between cards */
 }
 
@@ -77,7 +80,7 @@
 
 /* Small screens */
 @media (max-width: 768px) {
-  .BeautyPageLayout {
+  .AestheticsPageLayout {
     grid-template-columns: 1fr; /* Single column on small screens */
   }
 
@@ -87,8 +90,12 @@
     grid-column: 1 / 2; /* Center elements in a single column */
   }
 
-  .treatmentCard {
-    width: 80%; /* Adjust card width on small screens */
+  .cardContainer {
+    grid-template-columns: 1fr; /* Single column for cards on small screens */
+  }
+
+  .serviceCard {
+    width: 100%; /* Full width for cards on small screens */
     margin: 0 auto; /* Center cards */
   }
 }
