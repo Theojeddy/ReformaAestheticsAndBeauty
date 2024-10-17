@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Aesthetics from "./pages/Aesthetics/Aesthetics";
-import AboutUs from "./pages/AboutUs/AboutUs";
 import Beauty from "./pages/Beauty/Beauty";
 import Booking from "./pages/Booking/Booking";
 import ContactUs from "./pages/ContactUs/ContactUs";
@@ -28,7 +27,6 @@ const App = () => {
             path="/pages/Aesthetics"
             element={<Aesthetics setTreatment={setTreatment} />}
           />
-          <Route path="/pages/AboutUs" element={<AboutUs />} />
           <Route
             path="/pages/Beauty"
             element={<Beauty setTreatment={setTreatment} />}
@@ -41,7 +39,7 @@ const App = () => {
             element={<Treatments treatment={treatment} />}
           />
 
-          
+
           <Route path="/pages/Template" element={<Template />} />
         </Routes>
       </div>
