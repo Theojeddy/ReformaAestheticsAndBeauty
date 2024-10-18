@@ -1,0 +1,10 @@
+/* Google Fonts Import for Lora, Arapey, and Moontime */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Arapey:wght@400&family=Moontime&display=swap");
+
+/* Custom Font Faces for ALTA */
+@font-face {
+  font-family: "ALTA";
+  src: url("/fonts/ALTA-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}

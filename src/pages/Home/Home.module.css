@@ -25,6 +25,7 @@
 
 .pageContent {
   margin-top:20vh;
+  width: 100%;
 }
 
 .homepageLayout {
@@ -49,6 +50,7 @@
 .mainLogo {
   max-width: 100%;
   height: auto;
+  border-radius: var(--border-radius);
 }
 
 .titleSection {
@@ -103,6 +105,12 @@
   color: var(--primary-font-color);
   border-bottom: 15px solid var(--secondary-accent-color);
 }
+.visionSection p {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color:var(--primary-font-color);
+}
 
 /* Third Row: Map and Address */
 .mapSection {
@@ -130,6 +138,7 @@
   margin: 0;
   font-family: var(--font-body);
   line-height: 1.6;
+  color:var(--primary-font-color);
 }
 
 /* Responsive Design */

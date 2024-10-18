@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import ReformaNavbarLogo from "../../assets/ReformaNavbarLogo.svg"; 
@@ -23,14 +24,10 @@ export default function Navbar() {
         <div>
           <h1 className={styles.navTitle}>Reforma Aesthetics & Beauty</h1>
         </div>
-        <div>
-          <a
-            href="https://booking.styler.digital/?business=reforma_aesthetics_and_beauty"
-            target="_blank" // This opens the link in a new tab
-            rel="noopener noreferrer" // Adds security when opening in a new tab
-          >
-            <button>Book Now</button>
-          </a>
+        <div className={styles.buttonContainer}>
+          <Link to="Pages/Booking" className={styles.buttonLink}>
+            <button className={styles.bookButton}>Book Here</button>
+          </Link>
         </div>
 
         {/* Burger menu icon when closed and cross for when open */}
@@ -47,9 +44,10 @@ export default function Navbar() {
             <li>
               <a href="/pages/Staff">Staff</a>
             </li>
-            <li>
+            {/* Commented out for Demo, awaiting content */}
+            {/* <li>
               <a href="/pages/ContactUs">Contact Us</a>
-            </li>
+            </li> */}
             <li>
               <a href="/pages/Aesthetics">Reforma Aesthetics</a>
             </li>

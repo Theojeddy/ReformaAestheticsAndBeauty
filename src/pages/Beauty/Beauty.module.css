@@ -42,8 +42,9 @@
 }
 
 .mainLogo {
-  max-width: 100%; /* Responsive logo */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
 }
 
 .titleSection {
@@ -77,6 +78,12 @@
 
 .serviceCard:hover {
   transform: scale(1.02); /* Slight zoom effect on hover */
+}
+.serviceCard p {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color:var(--primary-font-color);
 }
 
 /* Small screens */

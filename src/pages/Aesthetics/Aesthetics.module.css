@@ -41,8 +41,9 @@
 }
 
 .mainLogo {
-  max-width: 100%; /* Responsive logo */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
 }
 
 .titleSection {
@@ -63,6 +64,7 @@
   grid-template-columns: repeat(2, 1fr); /* Two equal columns */
   grid-auto-rows: auto; /* Automatically adjust row height */
   gap: 20px; /* Space between cards */
+  
 }
 
 .serviceCard {
@@ -76,6 +78,12 @@
 
 .serviceCard:hover {
   transform: scale(1.02); /* Slight zoom effect on hover */
+}
+.serviceCard p {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color:var(--primary-font-color);
 }
 
 /* Small screens */

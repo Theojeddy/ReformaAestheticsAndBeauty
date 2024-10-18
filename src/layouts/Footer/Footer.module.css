@@ -24,7 +24,6 @@
   text-align: center;
   color: var(--secondary-font-color);
   font-family: var(--font-body); /* Assuming you are using a custom font */
-  width: 100vw;
 }
 
 .footerContent {
@@ -40,12 +39,12 @@
   gap: 10px;
 }
 
-i {
+.footer i {
   font-size: 1.5rem;
   color: #fff; /* Icon color */
 }
 
-p {
+.footer p {
   margin: 0;
   font-size: 1rem;
   color: var(--secondary-font-color);
@@ -64,7 +63,7 @@ p {
     gap: 15px;
   }
 
-  p {
+  .footer p {
     font-size: 0.9rem;
   }
 }
