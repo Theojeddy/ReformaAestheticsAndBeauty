@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import ReformaLogo from "../../assets/ReformaLogo.svg";
-import JenAndBecky from "../../assets/Home/Jen&becky.svg";
+import BrandUseCarousel from "../../components/BrandUseCarouselComponent/BrandUseCarousel";
+import CarouselImage1 from "../../assets/Home/BrandLogo's/CarouselImage1.svg";
+import CarouselImage2 from "../../assets/Home/BrandLogo's/CarouselImage2.svg";
+import WhatYouLoveCarousel from "../../components/WhatYouLoveCarousel/WhatYouLoveCarousel";
+import WhatYouLove1 from "../../assets/Home/WhatYouLove/WhatYouLove1.svg";
+import WhatYouLove2 from "../../assets/Home/WhatYouLove/WhatYouLove2.svg";
+import WhatYouLove3 from "../../assets/Home/WhatYouLove/WhatYouLove3.svg";
+import WhatYouLove4 from "../../assets/Home/WhatYouLove/WhatYouLove4.svg";
 
 export default function Home() {
   const [coordinates, setCoordinates] = useState<[number, number] | null>(null);
@@ -60,27 +66,69 @@ export default function Home() {
     }
   }, [coordinates]);
 
+  const BrandcarouselImages = [
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage2,
+    CarouselImage1,
+    CarouselImage1,
+  ];
+  const WhatYouLoveCarouselImages = [
+    WhatYouLove1,
+    WhatYouLove2,
+    WhatYouLove3,
+    WhatYouLove4,
+    WhatYouLove1,
+    WhatYouLove2,
+    WhatYouLove3,
+    WhatYouLove4,
+  ];
+  
+
   return (
     <div className={styles.pageContent}>
       <main className={styles.homepageLayout}>
-        {/* First Row */}
-        <div className={styles.logoSection}>
-          <img
-            className={styles.mainLogo}
-            src={ReformaLogo}
-            alt="Reforma Logo"
-          />
-        </div>
-
-        <div className={styles.titleSection}>
-          <h2 className={styles.title}>Welcome to</h2>
+        {/* Row */}
+        {/* Col */}
+        <div className={styles.WelcomeSection}>
+          <h2 className={styles.Title}>Welcome to</h2>
           <h2 className={styles.titleAccent}>Reforma Aesthetics and Beauty</h2>
           <h3 className={styles.subtitle}>
             OFFERING EVERYTHING YOU NEED IN ONE PLACE
           </h3>
-        </div>
+          <div className={styles.WelcomeRooms}>
+            <div>
+              <h1 className={styles.YouLoveTitle}>Beckys Room</h1>
+              <p>Enjoy a private and discreet clinic</p>
+            </div>
+            <div>
+              <h1 className={styles.YouLoveTitle}>Jens Room</h1>
+              <p>
+                Enjoy a selection of the industry's to professionals, qualified
+                and fully insured
+              </p>
+            </div>
+            </div>
+            </div>
+        {/* Col */}
 
-        {/* Second Row */}
+        {/* Row */}
+        <div className={styles.carouselSection}>
+          <BrandUseCarousel images={BrandcarouselImages} />
+        </div>
+        {/* Row */}
         <div className={styles.visionSection}>
           <h1 className={styles.visionTitle}>Our Vision</h1>
           <p>
@@ -92,16 +140,37 @@ export default function Home() {
             skilled, qualified professionals.
           </p>
         </div>
-
-        <div className={styles.visionImageContainer}>
-          <img
-            className={styles.visionImage}
-            src={JenAndBecky}
-            alt="Jen and Becky"
-          />
+        {/* Row */}
+        <div className={styles.YouLoveSection}>
+          <h1 className={styles.YouLoveTitle}>What You'll Love</h1>
+          <div className={styles.WhatLoveLove}>
+            <div>
+              <h1 className={styles.YouLoveTitle}>Privacy</h1>
+              <p>Enjoy a private and discreet clinic</p>
+            </div>
+            <div>
+              <h1 className={styles.YouLoveTitle}>Elite Therapists</h1>
+              <p>
+                Enjoy a selection of the industry's to professionals, qualified
+                and fully insured
+              </p>
+            </div>
+            <div>
+              <h1 className={styles.YouLoveTitle}>Price</h1>
+              <p>
+                Bespoke personal treatments to meet your needs with FREE, no
+                obligation consultations
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Third Row */}
+        {/* Row */}
+        <div className={styles.carouselSection}>
+          <WhatYouLoveCarousel images={WhatYouLoveCarouselImages} />
+        </div>
+
+        {/* Row */}
         {/* Conditional rendering based on screen size */}
         {isSmallScreen ? (
           <>

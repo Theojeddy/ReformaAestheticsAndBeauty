@@ -24,46 +24,68 @@
 }
 
 .pageContent {
-  margin-top:20vh;
+  margin-top: 20vh;
   width: 100%;
 }
 
 .homepageLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto;
   gap: 20px;
   padding: 20px;
   max-width: var(--max-width);
   margin: 0 auto;
   background-color: var(--background-color);
 }
-
-/* First Row: Logo and Title */
-.logoSection {
-  grid-column: 1 / 2;
-  display: flex;
+.WelcomeSection {
+  grid-column: 1 / -1; /* Span all columns */
   justify-content: center;
   align-items: center;
-}
-
-.mainLogo {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius);
-}
-
-.titleSection {
-  grid-column: 2 / 3;
+  background-color: var(--secondary-font-color);
+  position: relative; /* Required for absolute children */
+  background-image: url(../../assets/Home/RoomBackgrounds1.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
   display: flex;
-  flex-direction: column;
+}
+.WelcomeRooms{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: var(--secondary-font-color);
+  color: var(--primary-font-color);
+}
+.YouLoveSection {
+  grid-column: 1 / -1; /* Span all columns */
   justify-content: center;
   align-items: center;
+  background-color: var(--secondary-font-color);
+}
+.WhatLoveLove {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: var(--secondary-font-color);
+  color: var(--primary-font-color);
+}
+.YouLoveTitle {
+  color: var(--primary-font-color);
+  font-family: var(--font-secondary);
 }
 
 .title {
   font-family: var(--font-primary);
   text-align: center;
+  color: var(--background-color);
 }
 .subtitle {
   font-size: 1rem;
@@ -76,40 +98,47 @@
 
 .titleAccent {
   font-family: var(--font-accent);
-  color: var(--primary-font-color);
+  color: var(--background-color);
   text-align: center;
 }
 
 /* Second Row: Vision Section */
 .visionSection {
-  grid-column: 1 / 2;
-  padding: 20px;
-  border-radius: var(--border-radius);
-  color: var(--primary-font-color);
-}
-
-.visionImageContainer {
-  grid-column: 2 / 3;
+  grid-column: 1 / -1; /* Span all columns */
+  position: relative; /* Required for absolute children */
+  background-image: url(../../assets/Home/OurVisonBackground.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* So p is under h1 */
+  padding: 20px;
+  color: var(--primary-font-color);
+  text-align: center;
 }
 
-.visionImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius);
-}
 .visionTitle {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--background-color);
   font-family: var(--font-secondary);
-  color: var(--primary-font-color);
-  border-bottom: 15px solid var(--secondary-accent-color);
+  border-bottom: 5px solid var(--background-color);
+  width: 50%;
+  padding: 10px 20px;
+  z-index: 2;
 }
+
 .visionSection p {
-  margin: 0;
+  margin-top: 5%; /* Makes space for title to overlay */
   font-family: var(--font-body);
   line-height: 1.6;
-  color:var(--primary-font-color);
+  color: var(--background-color);
+  max-width: 800px;
 }
 
 /* Third Row: Map and Address */
@@ -125,7 +154,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;;
+  padding: 20px;
 }
 
 .visitUsSection h2 {
@@ -138,26 +167,60 @@
   margin: 0;
   font-family: var(--font-body);
   line-height: 1.6;
-  color:var(--primary-font-color);
+  color: var(--primary-font-color);
+}
+.carouselSection {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-color);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-
   .pageContent {
-  margin-top: 15vh;
-}
+    margin-top: 15vh;
+  }
   .homepageLayout {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto auto auto;
     padding: 10px;
   }
 
-  .titleSection, .logoSection, .visionSection, .visionImageContainer, .visitUsSection,.mapSection {
+  .WhatLoveLove {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .visionTitle {
+    top: 10%;
+  }
+
+  .visionSection p {
+    margin-top: 5%; /* Makes space for title to overlay */
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--background-color);
+    max-width: 800px;
+  }
+
+  .titleSection,
+  .logoSection,
+  .visionSection,
+  .visionImageContainer,
+  .visitUsSection,
+  .mapSection {
     grid-column: 1 / 2;
   }
 
   .visionImage {
     max-width: 80%;
+  }
+
+  .carouselSection {
+    grid-column: 1 / 2;
   }
 }
