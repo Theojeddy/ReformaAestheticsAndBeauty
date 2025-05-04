@@ -10,27 +10,16 @@ import WhatYouLove1 from "../../assets/Home/WhatYouLove/WhatYouLove1.svg";
 import WhatYouLove2 from "../../assets/Home/WhatYouLove/WhatYouLove2.svg";
 import WhatYouLove3 from "../../assets/Home/WhatYouLove/WhatYouLove3.svg";
 import WhatYouLove4 from "../../assets/Home/WhatYouLove/WhatYouLove4.svg";
+import AsSeenOnYou from "../../components/AsSeenOnYou/AsSeenOnYou";
+import AsSeenOnYou1 from "../../assets/Home/AsSeenOnYou/SeenOnYou1.svg";
+import AsSeenOnYou2 from "../../assets/Home/AsSeenOnYou/SeenOnYou2.svg";
+import AsSeenOnYou3 from "../../assets/Home/AsSeenOnYou/SeenOnYou3.svg";
+import AsSeenOnYou4 from "../../assets/Home/AsSeenOnYou/SeenOnYou4.svg";
+import AsSeenOnYou5 from "../../assets/Home/AsSeenOnYou/SeenOnYou5.svg";
+import AsSeenOnYou6 from "../../assets/Home/AsSeenOnYou/SeenOnYou6.svg";
 
 export default function Home() {
   const [coordinates, setCoordinates] = useState<[number, number] | null>(null);
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-    useEffect(() => {
-      // Check the screen size and update the state accordingly
-      const handleResize = () => {
-        setIsSmallScreen(window.innerWidth <= 768); // Small screen if width is <= 768px
-      };
-
-      // Run the check on initial render
-      handleResize();
-
-      // Listen for window resize events
-      window.addEventListener("resize", handleResize);
-
-      // Cleanup the event listener on component unmount
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
   useEffect(() => {
     const fetchCoordinates = async () => {
       try {
@@ -95,33 +84,27 @@ export default function Home() {
     WhatYouLove3,
     WhatYouLove4,
   ];
-  
+  const AsSeenOnYouCarouselImages = [
+    AsSeenOnYou1,
+    AsSeenOnYou2,
+    AsSeenOnYou3,
+    AsSeenOnYou4,
+    AsSeenOnYou5,
+    AsSeenOnYou6,
+  ];
 
   return (
     <div className={styles.pageContent}>
       <main className={styles.homepageLayout}>
         {/* Row */}
-        {/* Col */}
+
         <div className={styles.WelcomeSection}>
           <h2 className={styles.Title}>Welcome to</h2>
           <h2 className={styles.titleAccent}>Reforma Aesthetics and Beauty</h2>
           <h3 className={styles.subtitle}>
             OFFERING EVERYTHING YOU NEED IN ONE PLACE
           </h3>
-          <div className={styles.WelcomeRooms}>
-            <div>
-              <h1 className={styles.YouLoveTitle}>Beckys Room</h1>
-              <p>Enjoy a private and discreet clinic</p>
-            </div>
-            <div>
-              <h1 className={styles.YouLoveTitle}>Jens Room</h1>
-              <p>
-                Enjoy a selection of the industry's to professionals, qualified
-                and fully insured
-              </p>
-            </div>
-            </div>
-            </div>
+        </div>
         {/* Col */}
 
         {/* Row */}
@@ -143,20 +126,20 @@ export default function Home() {
         {/* Row */}
         <div className={styles.YouLoveSection}>
           <h1 className={styles.YouLoveTitle}>What You'll Love</h1>
-          <div className={styles.WhatLoveLove}>
+          <div className={styles.WhatYoullLove}>
             <div>
-              <h1 className={styles.YouLoveTitle}>Privacy</h1>
+              <h1>Privacy</h1>
               <p>Enjoy a private and discreet clinic</p>
             </div>
             <div>
-              <h1 className={styles.YouLoveTitle}>Elite Therapists</h1>
+              <h1>Elite Therapists</h1>
               <p>
                 Enjoy a selection of the industry's to professionals, qualified
                 and fully insured
               </p>
             </div>
             <div>
-              <h1 className={styles.YouLoveTitle}>Price</h1>
+              <h1>Price</h1>
               <p>
                 Bespoke personal treatments to meet your needs with FREE, no
                 obligation consultations
@@ -170,47 +153,28 @@ export default function Home() {
           <WhatYouLoveCarousel images={WhatYouLoveCarouselImages} />
         </div>
 
-        {/* Row */}
-        {/* Conditional rendering based on screen size */}
-        {isSmallScreen ? (
-          <>
-            {/* 'How To Find Us' section before the map on small screens */}
-            <div className={styles.visitUsSection}>
-              <h2>How To Find Us</h2>
-              <p>
-                Reforma Beauty
-                <br />
-                716 Portway, Bristol,
-                <br />
-                Bristol,
-                <br />
-                United Kingdom,
-                <br />
-                BS11 9NX
-              </p>
-            </div>
-            <div className={styles.mapSection} id="my-map"></div>
-          </>
-        ) : (
-          <>
-            {/* Map section before 'How To Find Us' on large screens */}
-            <div className={styles.mapSection} id="my-map"></div>
-            <div className={styles.visitUsSection}>
-              <h2>How To Find Us</h2>
-              <p>
-                Reforma Beauty
-                <br />
-                716 Portway, Bristol,
-                <br />
-                Bristol,
-                <br />
-                United Kingdom,
-                <br />
-                BS11 9NX
-              </p>
-            </div>
-          </>
-        )}
+        <div className={styles.AsSeenOnYouSection}>
+          <AsSeenOnYou images={AsSeenOnYouCarouselImages} />
+        </div>
+
+        {/* 'How To Find Us' section before the map on small screens */}
+        <div className={styles.visitUsSection}>
+          <div className={styles.FindUs}>
+            <h2>How To Find Us</h2>
+            <p>
+              Reforma Beauty
+              <br />
+              716 Portway, Bristol,
+              <br />
+              Bristol,
+              <br />
+              United Kingdom,
+              <br />
+              BS11 9NX
+            </p>
+          </div>
+        </div>
+        <div className={styles.mapSection} id="my-map"></div>
       </main>
     </div>
   );
